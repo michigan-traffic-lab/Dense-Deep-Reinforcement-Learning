@@ -47,6 +47,10 @@ This repository is built based on several python packages, which can be installe
 pip install -r requirements.txt
 ```
 
+4. Download the supplementary data analysis dataset
+
+Due to the size limit of the github, the raw data and some processed data cannot be uploaded. Therefore, we store the `data_analysis` folder in the Google Drive. The user should download the `data_analysis` folder from https://drive.google.com/drive/folders/1eQk6l7Ed_aLZZs-GX_60roCfEJEND1AB?usp=share_link. Then, the user should merge the downloaded `data_analysis` folder with the original `data_analysis` folder in the repo.
+
 <!-- USAGE EXAMPLES -->
 
 # Usage
@@ -90,7 +94,7 @@ To provide further details of the three code running modes, a flowchart of PET d
 
 * **For Mode 1:** this step is skipped.
 * **For Mode 2:** 
-  * Please note that all experiment results are zipped to reduce the storage space. To utilize the experiment results and analyze the data, please first download the raw_data folder from https://drive.google.com/drive/folders/1eQk6l7Ed_aLZZs-GX_60roCfEJEND1AB?usp=share_link and store at `/data_analysis/raw_data`. Then, unzip all zipped files to the same directory. Please note that the unzip process could take about 30 minutes and the total size of the unzipped files is around 130 GB.
+  * Before running mode 2, the dataset under `/data_analysis/raw_data` needs to be unzipped first. All zipped files should be unzipped to the same directory. Please note that the unzip process could take about 30 minutes and the total size of the unzipped files is around 130 GB.
     * For D2RL experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure:
   ![Flowchart of three code running modes](./images/file.png "Title")
     * For NDE experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure: ![Flowchart of three code running modes](./images/file_nde.png "Title")
