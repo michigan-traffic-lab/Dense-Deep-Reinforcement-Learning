@@ -176,7 +176,6 @@ packages.png
 *.jpg
 *.pdf 
 *.svg 
-*.png
 *.zip 
 
 /data_analysis
