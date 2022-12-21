@@ -1,9 +1,9 @@
-# AI against AI: Dense deep reinforcement learning for safety validation of autonomous vehicles
+# Dense reinforcement learning for safety validation of autonomous vehicles
 
 <!-- ABOUT THE PROJECT -->
 # About the Project
 
-This project contains the source code and data for "AI against AI: Dense deep reinforcement learning for safety validation of autonomous vehicles".
+This project contains the source code and data for "Dense reinforcement learning for safety validation of autonomous vehicles".
 
 The code structure is as follows:
 
@@ -51,6 +51,12 @@ pip install -r requirements.txt
 
 Due to the size limit of the github, the raw data and some processed data cannot be uploaded. Therefore, we store the `data_analysis` folder in the Google Drive. The user should download the `data_analysis` folder from https://drive.google.com/drive/folders/1eQk6l7Ed_aLZZs-GX_60roCfEJEND1AB?usp=share_link. Then, the user should merge the downloaded `data_analysis` folder with the original `data_analysis` folder in the repo.
 
+5. Install ipykernel (for Jupyter notebook)
+
+Before running jupyter notebooks in the data analysis, the ipykernel is needed. To install it, users can run the following command:
+```bash
+pip install ipykernel
+```
 <!-- USAGE EXAMPLES -->
 
 # Usage
@@ -85,9 +91,9 @@ To provide further details of the three code running modes, a flowchart of PET d
 * **For Mode 3:**
   * Please run the following commands to run the simulation and generate the raw experiment results for Naturalistic Driving Environment (NDE) testing and D2RL-based testing:
     * ```python
-      python main.py --yaml_conf ./yaml_conf/2lane_400m_IDM_NDE.yaml # Use this for NDE Testing. 72,000 core*hours are needed. 1 core*hour denotes the simulation running on one CPU core (Intel Xeon Gold 6154 3.0GHz) for one hour. 
+      python main.py --experiment_name 2lane_400m_NDE_testing --mode NDE # Use this for NDE Testing
     * ```python 
-      python main.py --yaml_conf ./yaml_conf/2lane_400m_IDM_D2RL.yaml # Use this for D2RL Testing. 1,500 core*hours are needed.
+      python main.py --experiment_name 2lane_400m_D2RL_testing --mode D2RL # Use this for D2RL Testing
     * By default, the simulation result will be stored in `./data_analysis/raw_data/experiment_name`.
 
 ## 2. Data Processing
@@ -163,6 +169,7 @@ Haowei Sun (haoweis@umich.edu)
 # Reviewer
 
 Haojie Zhu (zhuhj@umich.edu)
+Zihao Wang (zihaooo@umich.edu)
 
 # Contact
 
