@@ -5,15 +5,36 @@
 
 This project contains the source code and data for "AI against AI: Dense deep reinforcement learning for safety validation of autonomous vehicles".
 
+The code structure is as follows:
+
+```
+Code_for_Release/
+|__ conf
+|__ maps
+|__ checkpoints
+|__ source_data
+|__ mtlsp
+|__ envs
+|__ controller
+|__ data_analysis
+|______ raw_data 
+|______ processed_data 
+|______ analysis_and_figures 
+|__ main.py
+|__ utils.py
+|__ nadeinfoextractor.py
+|__ requirements.txt
+```
+
 # Installation
 1. Python installation
    
 This repository is developed and tested under python 3.10.4 on Ubuntu 20.04 system.
 
 
-2. Create new virtual environment (Optional)
+2. Create a new virtual environment (Optional)
    
-Virtual environment is recommended to be utilized to run this repo, as it can provide high flexibility. To install the virtual environment, please use the following commands:
+A virtual environment is recommended to be utilized to run this repo, as it can provide high flexibility. To install the virtual environment, please use the following commands:
 ```bash
 virtualenv venv
 source venv/bin/activate
@@ -30,70 +51,72 @@ pip install -r requirements.txt
 
 # Usage
 
-All the data, code and results are stored in `/data_analysis` folder. In the paper, several safety-critical variables are analysed, including time-to-collision, post-enroachment-time, bumper-to-bumper distance, crash rate, crash type, and crash severity. In this section, we will use the post-enroachment-time (PET) analysis as an example, while all other indexes follow the same procedure. Each functionality is stored in a seperate jupyter notebook.
+All the data, code, and results are stored in `/data_analysis` folder. In this project, several performance metrics are analyzed, including time-to-collision, post-encroachment-time, bumper-to-bumper distance, crash rate, crash type, and crash severity. In this section, we will use the post-encroachment-time (PET) analysis as an example, while all other performance metrics follow the same procedure. The code for each performance metric analysis is stored in a separate jupyter notebook.
 
-Briefly speaking, the data analysis can be divided into three steps:
-1. Raw experiment result generation
-2. Data processing
-3. Data analysis
-   
-For each step, the intermediate data is generated and will be utilized in the next step. For the convenience of usage, we have also generated all the intermediate data, which are stored in `/data_analysis`. Therefore, users can start from any step and generate the final results. For example, you can only run the step 3 (data analysis), or you can only run step 2 and step 3, as the step 1 (raw data generation) can be very time-consuming. Specifically, there are three running modes as follows:
+> For jupyter notebook usage, please refer to https://docs.jupyter.org/en/latest/
 
-* Mode 1, data analysis using existing experiment results;
-* Mode 2, data process and data analysis using existing experiment results;
-* Mode 3, raw experiment result generation, data process, and data analysis.
+For the convenience of usage, we provide three running modes as illustrated in the following figure. Specifically, there exist three steps to reproduce the experiment results:
 
- To provide further details of the three code running modes, a flowchart of PET data generation, processing, and analysis is provided as follows:
+* **1. Raw data generation**
+* **2. Data processing**
+* **3. Data analysis**
 
- ![File structure](./documentation_figure.png "Title")
+As the raw data generation is time-consuming (e.g., 72,000 core*hours are needed for the NDE testing experiment), we also provide the data generated in our experiments, so users can use the data to skip the first two steps (Mode 1) or the first step (Mode 2) for quick reproduction. Specifically, there are three running modes as follows:
+
+* **Mode 1 (recommended)**: data analysis (step 3) using the data generated in our experiments;
+* **Mode 2**: data processing (step 2) and data analysis (step 3) using the data generated in our experiments;
+* **Mode 3**: raw data generation (step 1), data processing (step 2), and data analysis (step 3).
+
+> 1 core*hour denotes the simulation running on one CPU core (Intel Xeon Gold 6154 3.0GHz) for one hour. 
+
+To provide further details of the three code running modes, a flowchart of PET data generation, processing, and analysis is provided as follows:
+
+ ![File structure](./images/documentation_figure.png "Title")
 
 ## 1. Raw Data Generation
 
-To get the raw experiment results, two options are provided
 
-* Option 1 (recommended): Use existing experiment results
-  * Please note that all experiments are zipped to reduce the storage space. To utilize the experiment results and analyse the data, please first unzip all zipped files to the same directory. Please note that the unzip process could take about 90 minutes and the total size of the unzipped files is around 120 GB. 
-    * For D2RL experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure:
-  ![Flowchart of three code running modes](./file.png "Title")
-    * For NDE experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure: ![Flowchart of three code running modes](./file_nde.png "Title")
-  * D2RL experiment results are stored in `/data_analysis/raw_data/D2RL`
-    * "Experiment-2lane_400m_D2RL_2022-09-10"
-  * NDE experiment results are stored in `/data_analysis/raw_data/NDE`
-    * "Experiment-2lane_400m_NDE_v1_2022-09-09"
-    * "Experiment-2lane_400m_NDE_v2_2022-09-09"
-    * "Experiment-2lane_400m_NDE_v3_2022-09-09"
-* Option 2 (time-consuming): Run the experiments to generate the raw experiment data
-  * For NDE experiments: 72,000 core*hours are needed
-  * For D2RL experiments: 1,500 core*hours are needed
-    * > 1 core*hour denotes the simulation running on one cpu core (Intel Xeon Gold 6154 3.0GHz) for one hour
-  * Please run the following commands to run the simulation and generate the experiment results from Naturalistic Driving Environment (NDE) or D2RL-based testing environment:
+* **For Mode 1:** this step is skipped.
+* **For Mode 2:** this step is skipped
+* **For Mode 3:**
+  * Please run the following commands to run the simulation and generate the raw experiment results for Naturalistic Driving Environment (NDE) testing and D2RL-based testing:
     * ```python
-      python main.py --experiment_name 2lane_400m_NDE_testing --mode NDE # Use this for NDE Testing
+      python main.py --yaml_conf ./yaml_conf/2lane_400m_IDM_NDE.yaml # Use this for NDE Testing. 72,000 core*hours are needed. 1 core*hour denotes the simulation running on one CPU core (Intel Xeon Gold 6154 3.0GHz) for one hour. 
     * ```python 
-      python main.py --experiment_name 2lane_400m_D2RL_testing --mode D2RL # Use this for D2RL Testing
+      python main.py --yaml_conf ./yaml_conf/2lane_400m_IDM_D2RL.yaml # Use this for D2RL Testing. 1,500 core*hours are needed.
     * By default, the simulation result will be stored in `./data_analysis/raw_data/experiment_name`.
 
 ## 2. Data Processing
 
-The raw data generated by the experiments will contain all informations including the speed, position, acceleration, and steering angle of all vehicles in the experiments. To calculate the metrics of interest such as PET, the raw data needs to be processed. 
+* **For Mode 1:** this step is skipped.
+* **For Mode 2:** 
+  * Please note that all experiment results are zipped to reduce the storage space. To utilize the experiment results and analyze the data, please first download the raw_data folder from https://drive.google.com/drive/folders/1eQk6l7Ed_aLZZs-GX_60roCfEJEND1AB?usp=share_link and store at `/data_analysis/raw_data`. Then, unzip all zipped files to the same directory. Please note that the unzip process could take about 30 minutes and the total size of the unzipped files is around 130 GB.
+    * For D2RL experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure:
+  ![Flowchart of three code running modes](./images/file.png "Title")
+    * For NDE experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure: ![Flowchart of three code running modes](./images/file_nde.png "Title")
+  * Run all the code cells in the jupyter notebook (click "Run all" button in the menu bar of the notebook)
+  * The processing code is stored in `/data_analysis/processed_data/`. For example, the processing code of the PET for both NDE experiments and D2RL experiments can be found in the jupyter notebook `pet_process.ipynb`, including several major procedures:
+      * Load raw experiment results
+      * Data processing: transfer raw information (e.g., speed and position) to performance metrics (e.g., PET)
+      * Store the processed data into `/data_analysis/processed_data/NDE` or `/data_analysis/processed_data/D2RL`
+      * After the data processing, you should be able to find newly generated files:
+        * `NADE_near_miss_pet_weight.npy` and `NADE_near_miss_pet.npy` under `/data_analysis/processed_data/D2RL`
+        * `NDE_near_miss_pet.npy` under `/data_analysis/processed_data/NDE`
 
-The processing code is stored in `/data_analysis/processed_data/`. For example, the processing code of the PET for both NDE experiments and D2RL experiments can be found in the jupyter notebook `pet_process.ipynb`, including several major procedures:
+* **For Mode 3:**
+  * Please modify the following codes in the jupyter notebook to process the newly generated experiment results:
+  * ```python
+    root_folder = "../raw_simulation_results/D2RL/" # Please change it to the position where you stored the newly generated raw experiment data
+    path_list = ["Experiment-2lane_400m_IDM_NADE_2022-09-01"] # Please change it as the name of the folder generated in your new experiments
+    ```
+  * After the modification, users can follow the data processing for Mode 2.
 
-* Load raw experiment results
-* Data processing: transfer raw information (e.g., speed and position) to indexes (e.g., PET)
-* Store the processed data into `/data_analysis/processed_data/NDE` or `/data_analysis/processed_data/D2RL`
-* After the data processing, you should be able to find newly generated files:
-  * `NADE_near_miss_pet_weight.npy` and `NADE_near_miss_pet.npy` under `/data_analysis/processed_data/D2RL`
-  * `NDE_near_miss_pet.npy` under `/data_analysis/processed_data/NDE`
-
-> If you want to process the newly generated experiment results, you should modify the following codes in the jupyter notebook
-```python
-root_folder = "../raw_simulation_results/D2RL/" # Please change it as the position where you stored the newly generated raw experiment data
-path_list = ["Experiment-2lane_400m_IDM_NADE_2022-09-01"] # Please change it as the name of the folder generated in your new experiments
-```
 
 
 ## 3. Data Analysis
+
+> This step is the same for all three running modes.
+
 All the data analysis codes and generated figures can be found in `/data_analysis/analysis_and_figures/`. The file structure is as shown in follows:
 ```
 data_analysis/
@@ -101,15 +124,42 @@ data_analysis/
 |__ processed_data
 |___analysis_and_figures
 |______ crash_analysis
-|_________ crash_severity_type_plot.ipynb
+|_________ crash_severity_type_plot.ipynb # Analyze the crash severity and the crash type
 |______ crash_rate
-|_________ crash_rate_bootstrap_plot.ipynb
+|_________ crash_rate_bootstrap_plot.ipynb # Analyze the crash rate, the convergency number
 |______ near_miss_TTC_distance
-|_________ ttc_distance_analysis_json.ipynb
+|_________ ttc_distance_analysis_json.ipynb # Analyze the TTC, bumper-to-bumper distance
 |______ PET
-|_________ pet_analysis.ipynb
+|_________ pet_analysis.ipynb # Analyze the PET
 ```
 For example, the PET data analysis code can be found in `/data_analysis/analysis_and_figures/PET/pet_analysis.ipynb`, including the following major procedures:
 
 * Load the processed experiment data from `/data_analysis/processed_data`
-* Plot the PET histgram of D2RL experiments and NDE experiments, and then save the figures to `/data_analysis/analysis_and_figures/PET`.
+* Plot the PET histogram of D2RL experiments and NDE experiments, and then save the figures to `/data_analysis/analysis_and_figures/PET`.
+
+
+
+# Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+# License
+
+This project is not open-source for now.
+
+# Developer
+
+Haowei Sun (haoweis@umich.edu)
+# Reviewer
+
+Haojie Zhu (zhuhj@umich.edu)
+
+# Contact
+
+Henry Liu (henryliu@umich.edu)
