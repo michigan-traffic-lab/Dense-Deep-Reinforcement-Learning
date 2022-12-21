@@ -173,10 +173,8 @@ packages.png
 /drl_models
 /nn_builder
 *.mp4
-*.jpg
-*.pdf 
-*.svg 
 *.zip 
-
-/data_analysis
+README.pdf
+/data_analysis/processed_data/NDE 
+/data_analysis/processed_data/D2RL
 *.npy
