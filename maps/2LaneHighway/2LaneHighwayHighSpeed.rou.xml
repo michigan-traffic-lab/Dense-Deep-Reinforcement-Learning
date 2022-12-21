@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routes>
+    <!-- <vType id="NDD" carFollowModel="IDMNEW" stepping="1" laneChangeModel="LCNEW" tau="0.2" accel="2.0" decel="4.0" length="5.0" minGap="2.0" maxSpeed="40.0" lcAccelLat="20000.0" actionStepLength="1.0"/>  -->
+    <!-- <vType id="IDM" carFollowModel="IDM" stepping="1" laneChangeModel="SL2015" tau="1.0" accel="2.0" decel="4.0" length="5.0" minGap="2.0" maxSpeed="20.0" lcAccelLat="20000.0"/> -->
+    <vType id="IDM" carFollowModel="IDM" stepping="1" laneChangeModel="SL2015" tau="0.2" accel="2.0" decel="4.0" length="5.0" minGap="2.0" maxSpeed="40.0" lcAccelLat="20000.0"/>
+    <route edges="0to1" color="yellow" id="route_0"/>
+</routes>

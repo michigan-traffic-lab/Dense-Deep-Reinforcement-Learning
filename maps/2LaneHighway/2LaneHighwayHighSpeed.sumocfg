@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <input>
+        <net-file value="2LaneHighway.net.xml"/>
+        <route-files value="2LaneHighwayHighSpeed.rou.xml"/>
+    </input>
+
+    <!-- <output>
+	    <netstate-dump value="3LaneHighway.output.xml"/>
+    </output> -->
+
+</configuration>
