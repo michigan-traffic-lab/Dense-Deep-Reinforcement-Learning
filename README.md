@@ -49,7 +49,7 @@ pip install -r requirements.txt
 
 4. Download all required datasets
 
-Due to the size limit of the github, the raw data and some processed data cannot be uploaded. Therefore, we store the `data_analysis` folder in the Google Drive. The user should download the `data_analysis` folder from https://drive.google.com/drive/folders/1eQk6l7Ed_aLZZs-GX_60roCfEJEND1AB?usp=share_link. Then, the user should merge the downloaded `data_analysis` folder with the original `data_analysis` folder in the repo.
+Due to the size limit of the github, the raw data and some processed data cannot be uploaded. Therefore, we store the `data_analysis` folder in the Google Drive. The user should download the `data_analysis` folder from [Google Drive](https://drive.google.com/file/d/1OFIEcHuBLiDbpgDmQAK0olMAAUsEsPkX/view?usp=share_link). Then, the user should merge the downloaded `data_analysis` folder with the original `data_analysis` folder in the repo.
 
 5. Install ipykernel (for Jupyter notebook)
 
@@ -167,6 +167,7 @@ Haojie Zhu (zhuhj@umich.edu)
 
 Shuo Feng (fshuo@umich.edu)
 
+For help or issues using the code, please create an issue for this repository or contact Haowei Sun (haoweis@umich.edu).
 # Contact
 
-For help or issues using the pre-trained models, please submit a GitHub issue. For other communications, please contact Haowei Sun (haoweis@umich.edu) or Henry Liu (henryliu@umich.edu).
+For general questions about the paper, please contact Henry Liu (henryliu@umich.edu).
