@@ -47,7 +47,7 @@ This repository is built based on several python packages, which can be installe
 pip install -r requirements.txt
 ```
 
-4. Download the supplementary data analysis dataset
+4. Download all required datasets
 
 Due to the size limit of the github, the raw data and some processed data cannot be uploaded. Therefore, we store the `data_analysis` folder in the Google Drive. The user should download the `data_analysis` folder from https://drive.google.com/drive/folders/1eQk6l7Ed_aLZZs-GX_60roCfEJEND1AB?usp=share_link. Then, the user should merge the downloaded `data_analysis` folder with the original `data_analysis` folder in the repo.
 
@@ -159,18 +159,14 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-# License
-
-This project is not open-source for now.
-
-# Developer
+# Developers
 
 Haowei Sun (haoweis@umich.edu)
-# Reviewer
 
 Haojie Zhu (zhuhj@umich.edu)
-Zihao Wang (zihaooo@umich.edu)
+
+Shuo Feng (fshuo@umich.edu)
 
 # Contact
 
-Henry Liu (henryliu@umich.edu)
+For help or issues using the pre-trained models, please submit a GitHub issue. For other communications, please contact Haowei Sun (haoweis@umich.edu) or Henry Liu (henryliu@umich.edu).
