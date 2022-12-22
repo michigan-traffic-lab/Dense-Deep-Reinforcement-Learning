@@ -205,7 +205,7 @@ def round_value_function(real_value, round_item):
             assert value_idx <= (len(value_list)-1)
             assert value_idx >= 0
         except:
-            print("Fxxk!!!")
+            pass
         round_value = value_list[value_idx]
         assert value_dic[round_value] == value_idx
         return round_value, value_idx
@@ -217,7 +217,7 @@ def round_value_function(real_value, round_item):
             assert value_idx <= (len(value_list)-1)
             assert value_idx >= 0
         except:
-            print("Fxxk!!!")
+            pass
         round_value = value_list[value_idx]
         assert value_dic[round_value] == value_idx
         return round_value, value_idx
