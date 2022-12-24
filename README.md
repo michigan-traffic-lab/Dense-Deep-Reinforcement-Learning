@@ -3,12 +3,12 @@
 <!-- ABOUT THE PROJECT -->
 # About the Project
 
-This project contains the source code and data for "Dense reinforcement learning for safety validation of autonomous vehicles".
+This project contains the source code and data for "Dense reinforcement learning for safety validation of autonomous vehicles". H. L. and the team have filed a US provisional patent application 63/338,424.
 
 The code structure is as follows:
 
 ```
-Code_for_Release/
+Dense-Deep-Reinforcement-Learning/
 |__ conf
 |__ maps
 |__ checkpoints
