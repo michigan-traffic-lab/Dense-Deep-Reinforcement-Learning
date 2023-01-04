@@ -3,7 +3,7 @@
 <!-- ABOUT THE PROJECT -->
 # About the Project
 
-This project contains the source code and data for "Dense reinforcement learning for safety validation of autonomous vehicles". H. L. and the team have filed a US provisional patent application 63/338,424.
+This project contains the source code and data for "Dense reinforcement learning for safety validation of autonomous vehicles". 
 
 The code structure is as follows:
 
@@ -168,6 +168,11 @@ Haojie Zhu (zhuhj@umich.edu)
 Shuo Feng (fshuo@umich.edu)
 
 For help or issues using the code, please create an issue for this repository or contact Haowei Sun (haoweis@umich.edu).
+
+# License
+
+H. L. and the team have filed a US provisional patent application 63/338,424.
+
 # Contact
 
 For general questions about the paper, please contact Henry Liu (henryliu@umich.edu).
