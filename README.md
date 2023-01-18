@@ -49,7 +49,7 @@ pip install -r requirements.txt
 
 4. Download all required datasets
 
-Due to the size limit of the github, the raw data and some processed data cannot be uploaded. Therefore, we store the `data_analysis` folder in the Google Drive. The user should download the `data_analysis` folder from [Google Drive](https://drive.google.com/file/d/1OFIEcHuBLiDbpgDmQAK0olMAAUsEsPkX/view?usp=share_link). Then, the user should merge the downloaded `data_analysis` folder with the original `data_analysis` folder in the repo.
+Due to the size limit of the github, the raw data and some processed data cannot be uploaded. Therefore, we store the `data_analysis` folder in the Google Drive. The user should download the `data_analysis` folder from [here](https://dense-deep-reinforcement-learning.s3.us-east-2.amazonaws.com/data_analysis.zip). Then, the user should merge the downloaded `data_analysis` folder with the original `data_analysis` folder in the repo.
 
 5. Install ipykernel (for Jupyter notebook)
 
