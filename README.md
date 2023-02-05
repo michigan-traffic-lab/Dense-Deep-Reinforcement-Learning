@@ -1,58 +1,61 @@
 # Dense reinforcement learning for safety validation of autonomous vehicles
 
 <!-- ABOUT THE PROJECT -->
-# About the Project
+# Introduction of the Project
 
+## About
 This project contains the source code and data for "Dense reinforcement learning for safety validation of autonomous vehicles". 
+## Features
+Users can use this repo to generate testing trajectories, process and analyse simulation results.
 
-The code structure is as follows:
+## Code Structure
+'main.py' runs vehicle testing simulations and generats raw trajectory data, which depends on 'envs', 'conf', 'controller', 'maps', 'source_data' and 'mtlsp'. 'envs' specifies NDE and NADE driving environments which utilizes vehicle controllers from 'controller' and maneuver probabilities from 'source_data'. 'mtlsp' combines 'envs' and 'maps' and runs SUMO simulations. 
+'data_analysis' folder contains two folders: 'processed_data' and 'analysis_and_figures'. 'processed_data' contains notebooks that process raw testing data into metrics including crash rate, crash type severity, near miss TTC and PET. 'analysis_and_figures' provides notebooks to analyse the metrics and plot their distributions.
 
-```
-Dense-Deep-Reinforcement-Learning/
-|__ conf
-|__ maps
-|__ checkpoints
-|__ source_data
-|__ mtlsp
-|__ envs
-|__ controller
-|__ data_analysis
-|______ raw_data 
-|______ processed_data 
-|______ analysis_and_figures 
-|__ main.py
-|__ utils.py
-|__ nadeinfoextractor.py
-|__ requirements.txt
-```
+An illustration is as follows:
+
+- Dense-Deep-Reinforcement-Learning/
+  - conf: configurations for raw data generation and data analysis
+  - maps: maps for data generation
+  - checkpoints: model checkpoints for D2RL in raw data generation step
+  - source_data: source data to estimate vehicle maneuver probabilities in raw data generation
+  - mtlsp: the mtlsp repo uses SUMO to simulate driving in given environment with given controllers
+  - envs: environments for mtlsp to run simulations in
+  - controller: vehicle controllers for mtlsp environments
+  - data_analysis: the main folder for data analysis
+    - raw_data: either self generate or download from our G-drive, the raw vehicle trajectories from SUMO simulation
+    - processed_data: notebooks to process the raw data into performance metrics including crash rate, crash type severity, near miss TTC and PET.
+    - analysis_and_figures: notebooks to analyse the metrics and plot their distributions.
+  - main.py: run simulation with mtlsp and generate raw data
+  - utils.py: utility functions
+  - nadeinfoextractor.py: information extractors that document information at each timestep of the experiment
+  - requirements.txt: required packages for this repo to run
+
 
 # Installation
-1. Python installation
-   
-This repository is developed and tested under python 3.10.4 on Ubuntu 20.04 system.
 
-
-2. Create a new virtual environment (Optional)
-   
+## Pre-requirements
+  - Python installation
+    This repository is developed and tested under python 3.10.4 on Ubuntu 20.04 system.
+  - Download all required datasets
+    Due to the size limit of the github, the raw data and some processed data cannot be uploaded. Therefore, we store the `data_analysis` folder in the Google Drive. The user should download the `data_analysis` folder from [here](https://dense-deep-reinforcement-learning.s3.us-east-2.amazonaws.com/data_analysis.zip). Then, the user should merge the downloaded `data_analysis` folder with the original `data_analysis` folder in the repo.
+## Installation and configuration
+### Clone this repository
+```bash
+git clone https://github.com/michigan-traffic-lab/Dense-Deep-Reinforcement-Learning.git
+```
+### Create a new virtual environment (Optional)
 A virtual environment is recommended to be utilized to run this repo, as it can provide high flexibility. To install the virtual environment, please use the following commands:
 ```bash
 virtualenv venv
 source venv/bin/activate
 ```
-
-3. Install all required packages
-
+### Install all required packages
 This repository is built based on several python packages, which can be installed using the following command:
 ```bash
 pip install -r requirements.txt
 ```
-
-4. Download all required datasets
-
-Due to the size limit of the github, the raw data and some processed data cannot be uploaded. Therefore, we store the `data_analysis` folder in the Google Drive. The user should download the `data_analysis` folder from [here](https://dense-deep-reinforcement-learning.s3.us-east-2.amazonaws.com/data_analysis.zip). Then, the user should merge the downloaded `data_analysis` folder with the original `data_analysis` folder in the repo.
-
-5. Install ipykernel (for Jupyter notebook)
-
+### Post-installation steps
 Before running jupyter notebooks in the data analysis, the ipykernel is needed. To install it, users can run the following command:
 ```bash
 pip install ipykernel
@@ -89,7 +92,7 @@ To provide further details of the three code running modes, a flowchart of PET d
 * **For Mode 1:** this step is skipped.
 * **For Mode 2:** this step is skipped
 * **For Mode 3:**
-  * Please run the following commands to run the simulation and generate the raw experiment results for Naturalistic Driving Environment (NDE) testing and D2RL-based testing:
+  * Please run the following commands to run the simulation and generate the raw experiment results for Naturalistic Driving Environment (NDE) testing and D2RL-based testing (the experiment_name can be specified by users):
     * ```python
       python main.py --experiment_name 2lane_400m_NDE_testing --mode NDE # Use this for NDE Testing
     * ```python 
@@ -159,6 +162,10 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+# License
+
+H. L. and the team have filed a US provisional patent application 63/338,424.
+
 # Developers
 
 Haowei Sun (haoweis@umich.edu)
@@ -168,10 +175,6 @@ Haojie Zhu (zhuhj@umich.edu)
 Shuo Feng (fshuo@umich.edu)
 
 For help or issues using the code, please create an issue for this repository or contact Haowei Sun (haoweis@umich.edu).
-
-# License
-
-H. L. and the team have filed a US provisional patent application 63/338,424.
 
 # Contact
 
