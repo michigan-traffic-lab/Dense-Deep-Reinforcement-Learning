@@ -164,6 +164,8 @@ Contributions are what make the open source community such an amazing place to b
 
 # License
 
+This project is licensed under the [PolyForm Noncommercial License 1.0.0]. Please refer to LICENSE for more details.
+
 H. L. and the team have filed a US provisional patent application 63/338,424.
 
 # Developers
