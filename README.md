@@ -4,59 +4,50 @@
 # Introduction of the Project
 
 ## About
-This project contains the source code and data for "Dense reinforcement learning for safety validation of autonomous vehicles". 
-## Features
-Users can use this repo to generate testing trajectories, process and analyse simulation results.
+This project contains the source code and data for the paper titled "Dense reinforcement learning for safety validation of autonomous vehicles". 
 
 ## Code Structure
-'main.py' runs vehicle testing simulations and generats raw trajectory data, which depends on 'envs', 'conf', 'controller', 'maps', 'source_data' and 'mtlsp'. 'envs' specifies NDE and NADE driving environments which utilizes vehicle controllers from 'controller' and maneuver probabilities from 'source_data'. 'mtlsp' combines 'envs' and 'maps' and runs SUMO simulations. 
-'data_analysis' folder contains two folders: 'processed_data' and 'analysis_and_figures'. 'processed_data' contains notebooks that process raw testing data into metrics including crash rate, crash type severity, near miss TTC and PET. 'analysis_and_figures' provides notebooks to analyse the metrics and plot their distributions.
-
-An illustration is as follows:
 
 - Dense-Deep-Reinforcement-Learning/
-  - conf: configurations for raw data generation and data analysis
-  - maps: maps for data generation
-  - checkpoints: model checkpoints for D2RL in raw data generation step
-  - source_data: source data to estimate vehicle maneuver probabilities in raw data generation
-  - mtlsp: the mtlsp repo uses SUMO to simulate driving in given environment with given controllers
-  - envs: environments for mtlsp to run simulations in
-  - controller: vehicle controllers for mtlsp environments
-  - data_analysis: the main folder for data analysis
-    - raw_data: either self generate or download from our G-drive, the raw vehicle trajectories from SUMO simulation
-    - processed_data: notebooks to process the raw data into performance metrics including crash rate, crash type severity, near miss TTC and PET.
-    - analysis_and_figures: notebooks to analyse the metrics and plot their distributions.
-  - main.py: run simulation with mtlsp and generate raw data
+  - conf: experiment configurations
+  - maps: maps for SUMO simulator
+  - checkpoints: model checkpoints for D2RL
+  - source_data: source data for constructing NDE and D2RL-based testing 
+  - mtlsp: simulation platform
+  - envs: NDE and D2RL-based testing environments
+  - controller: vehicle controllers (e.g. IDM)
+  - data_analysis: refer to "Usage" section for detailed information
+  - main.py: main function for running NDE and D2RL-based testing
   - utils.py: utility functions
-  - nadeinfoextractor.py: information extractors that document information at each timestep of the experiment
-  - requirements.txt: required packages for this repo to run
+  - nadeinfoextractor.py: information extractor for logging experiment information
+  - requirements.txt: required packages
 
 
 # Installation
 
 ## Pre-requirements
   - Python installation
-    This repository is developed and tested under python 3.10.4 on Ubuntu 20.04 system.
+    - This repository is developed and tested under python 3.10.4 on Ubuntu 20.04 system.
   - Download all required datasets
-    Due to the size limit of the github, the raw data and some processed data cannot be uploaded. Therefore, we store the `data_analysis` folder in the Google Drive. The user should download the `data_analysis` folder from [here](https://dense-deep-reinforcement-learning.s3.us-east-2.amazonaws.com/data_analysis.zip). Then, the user should merge the downloaded `data_analysis` folder with the original `data_analysis` folder in the repo.
+    - The user should download the `data_analysis` folder from [here](https://dense-deep-reinforcement-learning.s3.us-east-2.amazonaws.com/data_analysis.zip). Then, the user should merge the downloaded `data_analysis` folder with the original `data_analysis` folder in the repo.
 ## Installation and configuration
 ### Clone this repository
 ```bash
 git clone https://github.com/michigan-traffic-lab/Dense-Deep-Reinforcement-Learning.git
 ```
 ### Create a new virtual environment (Optional)
-A virtual environment is recommended to be utilized to run this repo, as it can provide high flexibility. To install the virtual environment, please use the following commands:
+To ensure high flexibility, it is recommended to use a virtual environment when running this repository. To set up the virtual environment, please follow the commands provided below:
 ```bash
 virtualenv venv
 source venv/bin/activate
 ```
 ### Install all required packages
-This repository is built based on several python packages, which can be installed using the following command:
+To install the Python packages required for this repository, execute the command provided below:
 ```bash
 pip install -r requirements.txt
 ```
-### Post-installation steps
-Before running jupyter notebooks in the data analysis, the ipykernel is needed. To install it, users can run the following command:
+### Install ipykernel (Jupyter Notebook) for data analysis
+In order to use Jupyter notebooks for data analysis, it is necessary to have the ipykernel installed. To install it, users can execute the command provided below:
 ```bash
 pip install ipykernel
 ```
@@ -64,17 +55,17 @@ pip install ipykernel
 
 # Usage
 
-All the data, code, and results are stored in `/data_analysis` folder. In this project, several performance metrics are analyzed, including time-to-collision, post-encroachment-time, bumper-to-bumper distance, crash rate, crash type, and crash severity. In this section, we will use the post-encroachment-time (PET) analysis as an example, while all other performance metrics follow the same procedure. The code for each performance metric analysis is stored in a separate jupyter notebook.
+The project contains a `data_analysis` folder that stores all data, code, and results. The project analyzes various performance metrics such as time-to-collision, post-encroachment-time, bumper-to-bumper distance, crash rate, crash type, and crash severity. This section will focus on the post-encroachment-time (PET) analysis as an example, while the same procedure applies to all other performance metrics. Each performance metric analysis has a separate Jupyter notebook that contains its respective code.
 
 > For jupyter notebook usage, please refer to https://docs.jupyter.org/en/latest/
 
-For the convenience of usage, we provide three running modes as illustrated in the following figure. Specifically, there exist three steps to reproduce the experiment results:
+To make it user-friendly, we offer three running modes, as depicted in the figure below. To replicate the experimental results, follow these three steps:
 
 * **1. Raw data generation**
 * **2. Data processing**
 * **3. Data analysis**
 
-As the raw data generation is time-consuming (e.g., 72,000 core*hours are needed for the NDE testing experiment), we also provide the data generated in our experiments, so users can use the data to skip the first two steps (Mode 1) or the first step (Mode 2) for quick reproduction. Specifically, there are three running modes as follows:
+Since generating raw data is a time-consuming process (e.g., NDE testing experiment requires 72,000 core*hours), we have included the data generated during our experiments for users to quickly replicate the results without the first two steps (Mode 1) or the first step (Mode 2). There are three running modes available:
 
 * **Mode 1 (recommended)**: data analysis (step 3) using the data generated in our experiments;
 * **Mode 2**: data processing (step 2) and data analysis (step 3) using the data generated in our experiments;
@@ -108,7 +99,7 @@ To provide further details of the three code running modes, a flowchart of PET d
   ![Flowchart of three code running modes](./images/file.png "Title")
     * For NDE experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure: ![Flowchart of three code running modes](./images/file_nde.png "Title")
   * Run all the code cells in the jupyter notebook (click "Run all" button in the menu bar of the notebook)
-  * The processing code is stored in `/data_analysis/processed_data/`. For example, the processing code of the PET for both NDE experiments and D2RL experiments can be found in the jupyter notebook `pet_process.ipynb`, including several major procedures:
+  * The data processing code is stored in `/data_analysis/processed_data/`. For example, the code for processing PET for both NDE experiments and D2RL experiments can be found in the jupyter notebook `pet_process.ipynb`, including several major steps:
       * Load raw experiment results
       * Data processing: transfer raw information (e.g., speed and position) to performance metrics (e.g., PET)
       * Store the processed data into `/data_analysis/processed_data/NDE` or `/data_analysis/processed_data/D2RL`
@@ -122,7 +113,7 @@ To provide further details of the three code running modes, a flowchart of PET d
     root_folder = "../raw_simulation_results/D2RL/" # Please change it to the position where you stored the newly generated raw experiment data
     path_list = ["Experiment-2lane_400m_IDM_NADE_2022-09-01"] # Please change it as the name of the folder generated in your new experiments
     ```
-  * After the modification, users can follow the data processing for Mode 2.
+  * After the modification, users can follow the data processing section for Mode 2.
 
 
 
@@ -145,7 +136,7 @@ data_analysis/
 |______ PET
 |_________ pet_analysis.ipynb # Analyze the PET
 ```
-For example, the PET data analysis code can be found in `/data_analysis/analysis_and_figures/PET/pet_analysis.ipynb`, including the following major procedures:
+For example, the PET data analysis code can be found in `/data_analysis/analysis_and_figures/PET/pet_analysis.ipynb`, including the following major steps:
 
 * Load the processed experiment data from `/data_analysis/processed_data`
 * Plot the PET histogram of D2RL experiments and NDE experiments, and then save the figures to `/data_analysis/analysis_and_figures/PET`.
