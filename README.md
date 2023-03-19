@@ -4,23 +4,25 @@
 # Introduction of the Project
 
 ## About
-This project contains the source code and data for the paper titled "Dense reinforcement learning for safety validation of autonomous vehicles". 
+This project contains the source code and data for the paper titled "Dense reinforcement learning for safety validation of autonomous vehicles".
 
 ## Code Structure
 
-- Dense-Deep-Reinforcement-Learning/
-  - conf: experiment configurations
-  - maps: maps for SUMO simulator
-  - checkpoints: model checkpoints for D2RL
-  - source_data: source data for constructing NDE and D2RL-based testing 
-  - mtlsp: simulation platform
-  - envs: NDE and D2RL-based testing environments
-  - controller: vehicle controllers (e.g. IDM)
-  - data_analysis: refer to "Usage" section for detailed information
-  - main.py: main function for running NDE and D2RL-based testing
-  - utils.py: utility functions
-  - nadeinfoextractor.py: information extractor for logging experiment information
-  - requirements.txt: required packages
+```
+Dense-Deep-Reinforcement-Learning/
+|__ conf: experiment configurations
+|__ maps: maps for SUMO simulator
+|__ checkpoints: model checkpoints for D2RL
+|__ source_data: source data for constructing NDE and D2RL-based testing 
+|__ mtlsp: simulation platform
+|__ envs: NDE and D2RL-based testing environments
+|__ controller: vehicle controllers (e.g. IDM)
+|__ data_analysis: refer to "Usage" section for detailed information
+|__ main.py: main function for running NDE and D2RL-based testing
+|__ utils.py: utility functions
+|__ nadeinfoextractor.py: information extractor for logging experiment information
+|__ requirements.txt: required packages
+```
 
 
 # Installation
@@ -101,14 +103,14 @@ To provide further details of the three code running modes, a flowchart of PET d
   * Run all the code cells in the jupyter notebook (click "Run all" button in the menu bar of the notebook)
   * The data processing code is stored in `/data_analysis/processed_data/`. For example, the code for processing PET for both NDE experiments and D2RL experiments can be found in the jupyter notebook `pet_process.ipynb`, including several major steps:
       * Load raw experiment results
-      * Data processing: transfer raw information (e.g., speed and position) to performance metrics (e.g., PET)
-      * Store the processed data into `/data_analysis/processed_data/NDE` or `/data_analysis/processed_data/D2RL`
-      * After the data processing, you should be able to find newly generated files:
+      * Data processing: convert raw information (e.g., speed and position) to performance metrics (e.g., PET)
+      * Store the processed data in `/data_analysis/processed_data/NDE` or `/data_analysis/processed_data/D2RL`
+      * Newly generated files can be located after the completion of data processing:
         * `NADE_near_miss_pet_weight.npy` and `NADE_near_miss_pet.npy` under `/data_analysis/processed_data/D2RL`
         * `NDE_near_miss_pet.npy` under `/data_analysis/processed_data/NDE`
 
 * **For Mode 3:**
-  * Please modify the following codes in the jupyter notebook to process the newly generated experiment results:
+  * In the Jupyter notebook, please modify the following codes to analyse the recently generated experimental outcomes:
   * ```python
     root_folder = "../raw_simulation_results/D2RL/" # Please change it to the position where you stored the newly generated raw experiment data
     path_list = ["Experiment-2lane_400m_IDM_NADE_2022-09-01"] # Please change it as the name of the folder generated in your new experiments
@@ -121,7 +123,7 @@ To provide further details of the three code running modes, a flowchart of PET d
 
 > This step is the same for all three running modes.
 
-All the data analysis codes and generated figures can be found in `/data_analysis/analysis_and_figures/`. The file structure is as shown in follows:
+The directory `/data_analysis/analysis_and_figures/` contains all the codes for data analysis and the figures generated. The file structure of the directory is shown below.
 ```
 data_analysis/
 |__ raw_data
@@ -136,10 +138,10 @@ data_analysis/
 |______ PET
 |_________ pet_analysis.ipynb # Analyze the PET
 ```
-For example, the PET data analysis code can be found in `/data_analysis/analysis_and_figures/PET/pet_analysis.ipynb`, including the following major steps:
+For example, the PET data analysis code can be found in `/data_analysis/analysis_and_figures/PET/pet_analysis.ipynb`, including following major steps:
 
 * Load the processed experiment data from `/data_analysis/processed_data`
-* Plot the PET histogram of D2RL experiments and NDE experiments, and then save the figures to `/data_analysis/analysis_and_figures/PET`.
+* Plot the PET histogram of D2RL experiments and NDE experiments, and then save figures to `/data_analysis/analysis_and_figures/PET`.
 
 
 
