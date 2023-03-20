@@ -82,8 +82,8 @@ To provide further details of the three code running modes, a flowchart of PET d
 ## 1. Raw Data Generation
 
 
-* **For Mode 1:** this step is skipped.
-* **For Mode 2:** this step is skipped
+* **For Mode 1:** N/A
+* **For Mode 2:** N/A
 * **For Mode 3:**
   * Please run the following commands to run the simulation and generate the raw experiment results for Naturalistic Driving Environment (NDE) testing and D2RL-based testing (the experiment_name can be specified by users):
     * ```python
@@ -94,7 +94,7 @@ To provide further details of the three code running modes, a flowchart of PET d
 
 ## 2. Data Processing
 
-* **For Mode 1:** this step is skipped.
+* **For Mode 1:** N/A
 * **For Mode 2:** 
   * Before running mode 2, the dataset under `/data_analysis/raw_data` needs to be unzipped to the same directory. Please note that the total size of the unzipped files will be around 130 GB.
     * For D2RL experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure:
