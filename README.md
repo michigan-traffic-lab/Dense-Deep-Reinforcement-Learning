@@ -96,7 +96,7 @@ To provide further details of the three code running modes, a flowchart of PET d
 
 * **For Mode 1:** this step is skipped.
 * **For Mode 2:** 
-  * Before running mode 2, the dataset under `/data_analysis/raw_data` needs to be unzipped first. All zipped files should be unzipped to the same directory. Please note that the unzip process could take about 30 minutes and the total size of the unzipped files is around 130 GB.
+  * Before running mode 2, the dataset under `/data_analysis/raw_data` needs to be unzipped to the same directory. Please note that the total size of the unzipped files will be around 130 GB.
     * For D2RL experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure:
   ![Flowchart of three code running modes](./images/file.png "Title")
     * For NDE experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure: ![Flowchart of three code running modes](./images/file_nde.png "Title")
