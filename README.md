@@ -80,7 +80,7 @@ pip install ipykernel
 
 # Usage
 
-The project contains a `data_analysis` folder that stores all data, code, and results. The project analyzes various performance metrics such as time-to-collision, post-encroachment-time, bumper-to-bumper distance, crash rate, crash type, and crash severity. This section will focus on the post-encroachment-time (PET) analysis as an example, while the same procedure applies to all other performance metrics. Each performance metric analysis has a separate Jupyter notebook that contains its respective code.
+The project includes a data_analysis directory, which stores data (raw & processed), code (data processing and data analysis), and outcomes (figures) related to data analysis. The project analyzes various performance metrics such as time-to-collision, post-encroachment-time, bumper-to-bumper distance, crash rate, crash type, and crash severity. This section will focus on the post-encroachment-time (PET) analysis as an example, while the same procedure applies to all other performance metrics. Each performance metric analysis has a separate Jupyter notebook that contains its respective code.
 
 > For jupyter notebook usage, please refer to https://docs.jupyter.org/en/latest/
 
