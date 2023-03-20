@@ -61,7 +61,7 @@ The project contains a `data_analysis` folder that stores all data, code, and re
 
 > For jupyter notebook usage, please refer to https://docs.jupyter.org/en/latest/
 
-To make it user-friendly, we offer three running modes. Since generating raw data is a time-consuming process (e.g., NDE testing experiment requires 72,000 core*hours), we have included the data generated during our experiments for users to quickly replicate the results without the first two steps (Mode 1) or the first step (Mode 2). There are three running modes available:
+To make it user-friendly, we offer three running modes. Since generating raw data is a time-consuming process (e.g., NDE testing experiment requires 72,000 core*hours), we have included the data generated during our experiments for users to quickly replicate the results. There are three running modes available:
 
 * **Mode 1 (recommended)**: [data analysis](#step3) using the data generated in our experiments;
 * **Mode 2**: [data processing](#step2) and [data analysis](#step3) using the data generated in our experiments;
