@@ -24,6 +24,29 @@ Dense-Deep-Reinforcement-Learning/
 |__ requirements.txt: required packages
 ```
 
+# Citation
+Dense reinforcement learning for safety validation of autonomous vehicles
+
+Shuo Feng, Haowei Sun, Xintao Yan, Haojie Zhu, Zhengxia Zou, Shengyin Shen, Henry X. Liu
+
+*Nature 2023*
+```
+@article{Feng2023,
+	title = {Dense reinforcement learning for safety validation of autonomous vehicles},
+	volume = {615},
+	issn = {},
+	url = {},
+	doi = {},
+	number = {7953},
+	journal = {Nature},
+	author = {Shuo Feng, Haowei Sun, Xintao Yan, Haojie Zhu, Zhengxia Zou, Shengyin Shen, Henry X. Liu},
+	year = {2023},
+	pmid = {},
+	note = {Publisher: Nature Publishing Group},
+	pages = {},
+}
+```
+
 
 # Installation
 
