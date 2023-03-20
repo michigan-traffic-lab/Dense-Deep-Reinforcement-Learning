@@ -61,17 +61,11 @@ The project contains a `data_analysis` folder that stores all data, code, and re
 
 > For jupyter notebook usage, please refer to https://docs.jupyter.org/en/latest/
 
-To make it user-friendly, we offer three running modes, as depicted in the figure below. To replicate the experimental results, follow these three steps:
+To make it user-friendly, we offer three running modes. Since generating raw data is a time-consuming process (e.g., NDE testing experiment requires 72,000 core*hours), we have included the data generated during our experiments for users to quickly replicate the results without the first two steps (Mode 1) or the first step (Mode 2). There are three running modes available:
 
-* **1. Raw data generation**
-* **2. Data processing**
-* **3. Data analysis**
-
-Since generating raw data is a time-consuming process (e.g., NDE testing experiment requires 72,000 core*hours), we have included the data generated during our experiments for users to quickly replicate the results without the first two steps (Mode 1) or the first step (Mode 2). There are three running modes available:
-
-* **Mode 1 (recommended)**: data analysis (step 3) using the data generated in our experiments;
-* **Mode 2**: data processing (step 2) and data analysis (step 3) using the data generated in our experiments;
-* **Mode 3**: raw data generation (step 1), data processing (step 2), and data analysis (step 3).
+* **Mode 1 (recommended)**: [data analysis](#step3) using the data generated in our experiments;
+* **Mode 2**: [data processing](#step2) and [data analysis](#step3) using the data generated in our experiments;
+* **Mode 3**: [raw data generation](#step1), [data processing](#step2), and [data analysis](#step3).
 
 > 1 core*hour denotes the simulation running on one CPU core (Intel Xeon Gold 6154 3.0GHz) for one hour. 
 
@@ -79,7 +73,7 @@ To provide further details of the three code running modes, a flowchart of PET d
 
  ![File structure](./images/documentation_figure.png "Title")
 
-## 1. Raw Data Generation
+## 1. <span id="step1">Raw Data Generation</span>
 
 
 * **For Mode 1:** N/A
@@ -88,18 +82,14 @@ To provide further details of the three code running modes, a flowchart of PET d
   * Please run the following commands to run the simulation and generate the raw experiment results for Naturalistic Driving Environment (NDE) testing and D2RL-based testing (the experiment_name can be specified by users):
     * ```python
       python main.py --experiment_name 2lane_400m_NDE_testing --mode NDE # Use this for NDE Testing
-    * ```python 
-      python main.py --experiment_name 2lane_400m_D2RL_testing --mode D2RL # Use this for D2RL Testing
+      python main.py --experiment_name 2lane_400m_D2RL_testing --mode D2RL # Use this for D2RL Testing      
     * By default, the simulation result will be stored in `./data_analysis/raw_data/experiment_name`.
 
-## 2. Data Processing
+## 2. <span id="step2">Data Processing</span>
 
 * **For Mode 1:** N/A
 * **For Mode 2:** 
-  * Before running mode 2, the dataset under `/data_analysis/raw_data` needs to be unzipped to the same directory. Please note that the total size of the unzipped files will be around 130 GB.
-    * For D2RL experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure:
-  ![Flowchart of three code running modes](./images/file.png "Title")
-    * For NDE experiment results, the zipped file and unzipped folders should follow the file structure as shown in the following figure: ![Flowchart of three code running modes](./images/file_nde.png "Title")
+  * Before running mode 2, the zipped dataset under `/data_analysis/raw_data` needs to be unzipped to the same directory. Please note that the total size of the unzipped files will be around 130 GB.
   * Run all the code cells in the jupyter notebook (click "Run all" button in the menu bar of the notebook)
   * The data processing code is stored in `/data_analysis/processed_data/`. For example, the code for processing PET for both NDE experiments and D2RL experiments can be found in the jupyter notebook `pet_process.ipynb`, including several major steps:
       * Load raw experiment results
@@ -111,15 +101,23 @@ To provide further details of the three code running modes, a flowchart of PET d
 
 * **For Mode 3:**
   * In the Jupyter notebook, please modify the following codes to analyse the recently generated experimental outcomes:
-  * ```python
-    root_folder = "../raw_simulation_results/D2RL/" # Please change it to the position where you stored the newly generated raw experiment data
-    path_list = ["Experiment-2lane_400m_IDM_NADE_2022-09-01"] # Please change it as the name of the folder generated in your new experiments
-    ```
-  * After the modification, users can follow the data processing section for Mode 2.
+    * ```python
+      root_folder = "../raw_simulation_results/D2RL/" # Please change it to the position where you stored the newly generated raw experiment data
+      path_list = ["Experiment-2lane_400m_IDM_NADE_2022-09-01"] # Please change it as the name of the folder generated in your new experiments
+      ```
+  * After the modification, users can follow the data processing section of Mode 2:
+    * Run all the code cells in the jupyter notebook (click "Run all" button in the menu bar of the notebook)
+    * The data processing code is stored in `/data_analysis/processed_data/`. For example, the code for processing PET for both NDE experiments and D2RL experiments can be found in the jupyter notebook `pet_process.ipynb`, including several major steps:
+        * Load raw experiment results
+        * Data processing: convert raw information (e.g., speed and position) to performance metrics (e.g., PET)
+        * Store the processed data in `/data_analysis/processed_data/NDE` or `/data_analysis/processed_data/D2RL`
+        * Newly generated files can be located after the completion of data processing:
+          * `NADE_near_miss_pet_weight.npy` and `NADE_near_miss_pet.npy` under `/data_analysis/processed_data/D2RL`
+          * `NDE_near_miss_pet.npy` under `/data_analysis/processed_data/NDE`
 
 
 
-## 3. Data Analysis
+## 3. <span id="step3">Data Analysis</span>
 
 > This step is the same for all three running modes.
 
