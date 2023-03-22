@@ -34,16 +34,14 @@ Shuo Feng, Haowei Sun, Xintao Yan, Haojie Zhu, Zhengxia Zou, Shengyin Shen, Henr
 @article{Feng2023,
 	title = {Dense reinforcement learning for safety validation of autonomous vehicles},
 	volume = {615},
-	issn = {},
-	url = {},
-	doi = {},
+	url = {https://www.nature.com/articles/s41586-023-05732-2},
+	doi = {https://doi.org/10.1038/s41586-023-05732-2},
 	number = {7953},
 	journal = {Nature},
 	author = {Shuo Feng, Haowei Sun, Xintao Yan, Haojie Zhu, Zhengxia Zou, Shengyin Shen, Henry X. Liu},
 	year = {2023},
-	pmid = {},
 	note = {Publisher: Nature Publishing Group},
-	pages = {},
+	pages = {620-627},
 }
 ```
 
