@@ -25,11 +25,10 @@ Dense-Deep-Reinforcement-Learning/
 ```
 
 # Citation
-Dense reinforcement learning for safety validation of autonomous vehicles
 
-Shuo Feng, Haowei Sun, Xintao Yan, Haojie Zhu, Zhengxia Zou, Shengyin Shen, Henry X. Liu
+Feng, S., Sun, H., Yan, X., Zhu, H., Zou, Z., Shen, S., and Liu H.X. (2023). Dense reinforcement learning for safety validation of autonomous vehicles. Nature 615, 620–627. https://doi.org/10.1038/s41586-023-05732-2
 
-*Nature 2023*
+
 ```
 @article{Feng2023,
 	title = {Dense reinforcement learning for safety validation of autonomous vehicles},
