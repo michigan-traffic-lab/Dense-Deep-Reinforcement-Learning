@@ -1,0 +1,6 @@
+numpy==1.23.1
+setuptools==65.5.0
+gym==0.21.0
+torch==1.11.0
+tqdm==4.66.1
+ray==1.11.0

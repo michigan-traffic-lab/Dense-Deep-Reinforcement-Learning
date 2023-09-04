@@ -309,7 +309,7 @@ epsilon_lane_change_prob = 1e-8  # 5% to do lane change even if the gain is zero
 SM_MOBIL_max_gain_threshold = 1 # m/s^2 when gain is greater than this, the LC probability will be maximum
 Surrogate_POLITENESS = 0.
 criticality_threshold = 0
-epsilon_value = 0.1
+# epsilon_value = 0.1
 weight_threshold = 1e-8
 
 OL_LC_low_speed_flag, OL_LC_low_speed_use_v = False, 24 # ! Not used
