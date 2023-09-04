@@ -100,7 +100,7 @@ To provide further details of the three code running modes, a flowchart of PET d
 * **For Mode 2:** N/A
 * **For Mode 3:**
   * Please run the following commands to run the simulation and generate the raw experiment results for Naturalistic Driving Environment (NDE) testing and D2RL-based testing (the experiment_name can be specified by users):
-    * ```python
+    * ```bash
       python main.py --experiment_name 2lane_400m_NDE_testing --mode NDE # Use this for NDE Testing
       python main.py --experiment_name 2lane_400m_D2RL_testing --mode D2RL # Use this for D2RL Testing      
     * By default, the simulation result will be stored in `./data_analysis/raw_data/experiment_name`.
