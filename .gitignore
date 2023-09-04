@@ -179,3 +179,4 @@ README.pdf
 /data_analysis/processed_data/D2RL
 /data_analysis/behavior_policy_data
 /ray_results
+/checkpoints
