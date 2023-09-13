@@ -64,6 +64,13 @@ virtualenv venv
 source venv/bin/activate
 ```
 ### Install all required packages
+
+Due to the compatibility issue betwen gym and python setuptools, user should run follow commands to install a specific version of setuptools first:
+
+```bash
+pip install setuptools==65.5.0
+```
+
 To install the Python packages required for this repository, execute the command provided below:
 ```bash
 pip install -r requirements.txt

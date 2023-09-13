@@ -14,14 +14,13 @@ This documentation mainly discusses the D2RL training process and the usage of t
 ```bash
 git clone https://github.com/michigan-traffic-lab/Dense-Deep-Reinforcement-Learning.git
 ```
-### Create a new virtual environment (Optional)
-To ensure high flexibility, it is recommended to use a virtual environment when running this repository. To set up the virtual environment, please follow the commands provided below:
+### Create a new conda virtual environment (Optional)
+To ensure high flexibility, it is recommended to use a virtual environment when running this repository. To set up the virtual environment, please first [install Anaconda](https://docs.anaconda.com/free/anaconda/install/index.html), then follow the commands provided below:
 ```bash
-virtualenv venv_d2rl -p python3.8
-source venv_d2rl/bin/activate
+conda create -n d2rl python=3.8
 ```
 ### Install all required packages
-Due to the compatibility issue betwen gym and python setuptools, user should run follow commands to update the setuptools first:
+Due to the compatibility issue betwen gym and python setuptools, user should run follow commands to install a specific version of setuptools first:
 
 ```bash
 pip install setuptools==65.5.0
@@ -32,6 +31,10 @@ Then, to install the Python packages required for this repository, execute the c
 pip install -r requirements_d2rl_train.txt
 ```
 # Usage
+
+> Please note for Step 1 and Step 4, the user should activate the Python environment installed in README.md as both of them are running testing experiments.
+
+> For Step 2 and Step 3, the user should activate the Python environment installed in README_D2RL_Train.md as both of them are running training experiments.
 
 ## 1. AV Testing Using Behavior Policy
 Please run the following commands to run the simulation and generate the raw experiment results for behavior policy-based testing (the experiment_name can be specified by users):
