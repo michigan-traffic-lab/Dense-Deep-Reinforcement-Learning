@@ -21,7 +21,13 @@ virtualenv venv_d2rl -p python3.8
 source venv_d2rl/bin/activate
 ```
 ### Install all required packages
-To install the Python packages required for this repository, execute the command provided below:
+Due to the compatibility issue betwen gym and python setuptools, user should run follow commands to update the setuptools first:
+
+```bash
+pip install setuptools==65.5.0
+```
+
+Then, to install the Python packages required for this repository, execute the command provided below:
 ```bash
 pip install -r requirements_d2rl_train.txt
 ```
@@ -33,6 +39,8 @@ Please run the following commands to run the simulation and generate the raw exp
 python main.py --experiment_name 2lane_400m_behavior_policy_testing --mode behavior_policy
 ```
 By default, the simulation result will be stored in `./data_analysis/raw_data/your_experiment_name`.
+
+Since the collection of AV testing data using behavior policy is also time-consuming, we also provide pre-collected data, which can be downloaded from [here](https://dense-deep-reinforcement-learning.s3.us-east-2.amazonaws.com/Experiment-2lane_400m_behavior_policy_testing_2023-09-03.zip). We recommend the user to create "./data_analysis/behavior_policy_data" subfolder to store the extracted dataset. 
 
 ## 2. D2RL agent training given behavior policy trajectories
 

@@ -74,6 +74,11 @@ In order to use Jupyter notebooks for data analysis, it is necessary to have the
 pip install ipykernel
 ```
 <!-- USAGE EXAMPLES -->
+### D2RL Training Environment
+
+Please refer to README_D2RL_Train.md for detailed information about D2RL training environment installation and detailed usage.
+
+> Please note that D2RL training process requries a different python environment compared to the python environment in README.md, with different python verison requirements and different python packages.
 
 # Usage
 
