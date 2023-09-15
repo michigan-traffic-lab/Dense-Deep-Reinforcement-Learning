@@ -6,7 +6,7 @@ This documentation mainly discusses the D2RL training process and the usage of t
 # Installation
 ## Pre-requirements
   - Python installation
-    - This repository is developed and tested under python 3.8.17 on Ubuntu 22.04 system.
+    - This repository is developed and tested under python 3.8.18 on Ubuntu 22.04 system.
   - Download all required datasets
     - **Need to be updated**
 ## Installation and configuration
@@ -17,7 +17,7 @@ git clone https://github.com/michigan-traffic-lab/Dense-Deep-Reinforcement-Learn
 ### Create a new conda virtual environment (Optional)
 To ensure high flexibility, it is recommended to use a virtual environment when running this repository. To set up the virtual environment, please first [install Anaconda](https://docs.anaconda.com/free/anaconda/install/index.html), then follow the commands provided below:
 ```bash
-conda create -n d2rl python=3.8
+conda create -n d2rl python=3.8.18
 ```
 ### Install all required packages
 Due to the compatibility issue betwen gym and python setuptools, user should run follow commands to install a specific version of setuptools first:
