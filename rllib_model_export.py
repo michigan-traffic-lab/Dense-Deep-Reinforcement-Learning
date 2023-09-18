@@ -32,7 +32,7 @@ discriminator_agent = ppo.PPOTrainer(config=config, env="my_env")
 checkpoint_path = "/media/mtl/2TB/Dense-Deep-Reinforcement-Learning/ray_results/2lane_400m_D2RL_Training_V2/PPO_my_env_959a3_00000_0_2023-09-03_16-29-30/checkpoint_000177/checkpoint-177" # replace with your checkpoint path
 discriminator_agent.restore(checkpoint_path)
 p = discriminator_agent.get_policy()
-export_dir = "./checkpoints/2lane_400m_D2RL_v2" # replace with the path you would like to save the pytorch model
+export_dir = "./checkpoints/2lane_400m_D2RL" # replace with the path you would like to save the pytorch model
 p.export_model(export_dir) 
 
 model = torch.jit.load(export_dir + "/model.pt") 

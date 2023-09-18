@@ -49,7 +49,7 @@ Since the collection of AV testing data using behavior policy is also time-consu
 
 Please run the following commands to train the D2RL agent:
 ```bash
-python d2rl_train.py --yaml_conf './d2rl_training/d2rl_train.yaml'
+python d2rl_train.py --yaml_conf ./d2rl_training/d2rl_train.yaml
 ```
 The user will need to specify the training parameters in the `d2rl_train.yaml` file. The trained D2RL agent will be stored in `./ray_results/your_experiment_name`.
 ```yaml
@@ -63,15 +63,15 @@ clip_reward_threshold: 100 # The reward clipping threshold
 ```
 
 ## 3. Export the trained RLlib agent to a PyTorch model
-
-Please run the following commands to export the trained RLlib agent to a PyTorch model:
-```bash
-python rllib_model_export.py
-```
 Users will need to modify several arguments in the `rllib_model_export.py` file:
 ```python
 checkpoint_path = "/media/mtl/2TB/Dense-Deep-Reinforcement-Learning/ray_results/2lane_400m_D2RL_Training_V2/PPO_my_env_959a3_00000_0_2023-09-03_16-29-30/checkpoint_000177/checkpoint-177" # replace with your rllib checkpoint path
 export_dir = "./checkpoints/2lane_400m_D2RL" # replace with the path you would like to save the pytorch model
+```
+
+Please run the following commands to export the trained RLlib agent to a PyTorch model:
+```bash
+python rllib_model_export.py
 ```
 
 ## 4. Validate trained D2RL agent

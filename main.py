@@ -31,7 +31,7 @@ elif args.mode == "behavior_policy":
 
 print(f"Using mode {conf.experiment_config['mode']}, epsilon_setting {conf.simulation_config['epsilon_setting']}")
 # If running D2RL experiments, then load the D2RL agent
-d2rl_agent_path = "./checkpoints/2lane_400m_D2RL/model.pt"
+d2rl_agent_path = "./checkpoints/2lane_400m/model.pt"
 if conf.simulation_config["epsilon_setting"] == "drl":
     try:
         conf.discriminator_agent = conf.load_discriminator_agent(checkpoint_path=d2rl_agent_path)
