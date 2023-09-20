@@ -74,7 +74,7 @@ Please run the following commands to export the trained RLlib agent to a PyTorch
 python rllib_model_export.py
 ```
 
-## 4. Validate trained D2RL agent
+## 4. Validate the trained D2RL agent
 
 After the first three steps, users will be able to get the trained D2RL agent in the pytorch format. To validate the performance of the trained D2RL agent, users can refer to the "Usage" part in `README.md` to run the D2RL-based testing. However, the user will need to change the default pytorch model path to the path of the usertrained D2RL agent in line 34 of `main.py`. The default pytorch model path is `./checkpoints/2lane_400m_D2RL/`.
 ```python
