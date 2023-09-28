@@ -1,0 +1,7 @@
+experiment_name: "2lane_400m_D2RL_Training"
+root_folder: "./data_analysis/behavior_policy_data/"
+data_folders: ["Experiment-2lane_400m_behavior_policy_testing_2023-09-03"]
+data_folder_weights: [1]
+local_dir: "./ray_results/"
+num_workers: 12
+clip_reward_threshold: 100

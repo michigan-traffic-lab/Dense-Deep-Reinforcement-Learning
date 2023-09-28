@@ -64,6 +64,13 @@ virtualenv venv
 source venv/bin/activate
 ```
 ### Install all required packages
+
+Due to the compatibility issue betwen gym and python setuptools, user should run follow commands to install a specific version of setuptools first:
+
+```bash
+pip install setuptools==65.5.0
+```
+
 To install the Python packages required for this repository, execute the command provided below:
 ```bash
 pip install -r requirements.txt
@@ -74,6 +81,11 @@ In order to use Jupyter notebooks for data analysis, it is necessary to have the
 pip install ipykernel
 ```
 <!-- USAGE EXAMPLES -->
+### D2RL Training Environment
+
+Please refer to README_D2RL_Train.md for detailed information about D2RL training environment installation and detailed usage.
+
+> Please note that D2RL training process requries a different python environment compared to the python environment in README.md, with different python verison requirements and different python packages.
 
 # Usage
 
@@ -100,7 +112,7 @@ To provide further details of the three code running modes, a flowchart of PET d
 * **For Mode 2:** N/A
 * **For Mode 3:**
   * Please run the following commands to run the simulation and generate the raw experiment results for Naturalistic Driving Environment (NDE) testing and D2RL-based testing (the experiment_name can be specified by users):
-    * ```python
+    * ```bash
       python main.py --experiment_name 2lane_400m_NDE_testing --mode NDE # Use this for NDE Testing
       python main.py --experiment_name 2lane_400m_D2RL_testing --mode D2RL # Use this for D2RL Testing      
     * By default, the simulation result will be stored in `./data_analysis/raw_data/experiment_name`.

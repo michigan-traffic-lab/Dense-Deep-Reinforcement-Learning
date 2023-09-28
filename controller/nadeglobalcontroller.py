@@ -42,7 +42,7 @@ class NADEBVGlobalController(NDDBVGlobalController):
                     bv = self.env.vehicle_list[bv_id]
                     if self.apply_control_permission():
                         bv.update()
-            elif conf.experiment_config["mode"] == "D2RL":
+            elif conf.experiment_config["mode"] != "NDE":
                 bv_action_idx_list, weight_list, max_vehicle_criticality, ndd_possi_list, IS_possi_list, controlled_bvs_list, vehicle_criticality_list, _ = self.select_controlled_bv_and_action()
                 for bv_id in self.controllable_veh_id_list:
                     bv = self.env.vehicle_list[bv_id]
