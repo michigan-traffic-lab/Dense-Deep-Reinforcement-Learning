@@ -19,10 +19,16 @@ To ensure high flexibility, it is recommended to use a virtual environment when 
 ```bash
 conda create -n d2rl python=3.8.18
 ```
-### Install all required packages
-Due to the compatibility issue betwen gym and python setuptools, user should run follow commands to install a specific version of setuptools first:
 
 ```bash
+conda activate d2rl
+```
+
+### Install all required packages
+Due to the compatibility issue betwen gym and python setuptools, user should run follow commands to install a specific version of setuptools and wheel first:
+
+```bash
+pip install wheel==0.38.4
 pip install setuptools==65.5.0
 ```
 
@@ -61,6 +67,7 @@ local_dir: "./ray_results/" # The folder that stores the trained D2RL agent
 num_workers: 12 # The number of workers used for training, please set it to the number of CPU cores
 clip_reward_threshold: 100 # The reward clipping threshold
 ```
+For the proposed D2RL training experiments, the episode reward will converge to around 80, which normally takes around 20-30 minutes.
 
 ## 3. Export the trained RLlib agent to a PyTorch model
 Users will need to modify several arguments in the `rllib_model_export.py` file:

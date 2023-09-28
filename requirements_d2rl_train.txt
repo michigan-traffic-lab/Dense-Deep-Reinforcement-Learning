@@ -22,3 +22,6 @@ six==1.16.0
 torch==1.11.0
 tqdm==4.66.1
 zipp==3.16.2
+bidict==0.22.1
+sparse==0.13.0
+libsumo==1.18.0
